@@ -1,0 +1,23 @@
+<p style="color: green"><%= notice %></p>
+
+<%= link_to "New Player", new_player_path(team_id: @team.id) %>
+
+
+<%= render @team %>
+
+<h2>
+Roster:</h2>
+
+  <% @team.players.each do |player| %>
+ 
+ <h5> <%= player.name %> <br></h5>
+
+  <% end %>
+
+<div>
+  <%= link_to "Edit this team", edit_team_path(@team) %> |
+  <%= link_to "Back to Division", division_url(@team.division.id)%>
+  <br>
+
+  <%= button_to "Destroy this team", @team, method: :delete %>
+</div>

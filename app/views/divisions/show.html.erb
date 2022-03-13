@@ -1,0 +1,22 @@
+<p style="color: green"><%= notice %></p>
+
+<%= link_to "New team", new_team_path(division_id: @division.id) %>
+
+
+<%= render @division %>
+  <% @division.teams.each do |team| %>
+ 
+  <h3><%= link_to team.name, team_url(team) %></h3> <br>
+
+  <% end %>
+
+
+
+
+
+<div>
+  <%= link_to "Edit this division", edit_division_path(@division) %> |
+  <%= link_to "Back to divisions", divisions_path %>
+
+  <%= button_to "Destroy this division", @division, method: :delete %>
+</div>
